@@ -1,0 +1,77 @@
+#include <iostream>
+
+using namespace std;
+
+
+struct node{
+    
+           int data;
+           node *next;
+           
+};    
+    
+int main(){
+    
+    node *head, *tail, *ptr;
+
+//CREATE NODE
+ 
+    ptr = new node;
+    ptr->data = 30;
+    ptr->next = NULL;
+    head = ptr;
+    tail = ptr;
+    
+//CREATE NODE & ADD AT THE END
+    
+    ptr = new node;
+    ptr->data = 40;
+    ptr->next = NULL;
+    head->next = ptr;
+    tail = ptr;
+    
+//CREATE NODE & ADD AT THE BEGINNING
+
+    ptr = new node;
+    ptr->data = 10;
+    ptr->next = head;
+    head = ptr;
+    
+//INSERT NODE AT THE SECOND POSITION
+
+    ptr = new node;
+    ptr->data = 20;
+    ptr->next = head->next;
+    head->next = ptr;
+    
+//CREATE NODE & ADD AT THE END
+
+    ptr = new node;
+    ptr->data = 50;
+    ptr->next = NULL;
+    tail->next= ptr;
+    tail = ptr;
+    
+//DELETING NODES (3RD NODE)
+
+    ptr = head->next->next;
+    head->next->next = ptr->next; 
+    delete ptr;
+    
+//DISPLAY THE LINKED LIST
+    
+    ptr = head;
+    
+    while(ptr!=NULL){
+                    
+         cout << ptr->data << "->";
+         ptr = ptr->next;
+    
+    }
+    
+    cout << endl;
+    
+    system("PAUSE");
+    return 0; 
+
+}
